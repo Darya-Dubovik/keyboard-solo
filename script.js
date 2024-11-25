@@ -1,6 +1,4 @@
-
 const word = document.querySelector(".word");
-//const spans = document.querySelectorAll(".word span");
 const words = ['apple', 'rose', 'moon', 'winner', 'happiness'];
 const correctCount = document.querySelector(".correct-count");
 const wrongCount = document.querySelector(".wrong-count");
@@ -53,7 +51,8 @@ document.addEventListener('keydown', function(event) {
             wrongCount.textContent = ++wrongCount.textContent;
         };
         
-        isNewWord();
+        setTimeout(isNewWord, 0);
+
     }
     });
 
@@ -79,17 +78,17 @@ function isNewWord() {
 
 function checkNumber() {
     if (correctCount.textContent >= 5) {
-        alert('Вы победили!');
-        correctCount.textContent = 0;
-        wrongCount.textContent = 0;
-        wordMistakes.textContent = 0;
+        isFinished('Вы победили!');
 
     } else if (wrongCount.textContent >= 5) {
-        alert('Увы..');
-        correctCount.textContent = 0;
-        wrongCount.textContent = 0;
-        wordMistakes.textContent = 0;
+        isFinished('Увы..');
     };
 
 };
 
+function isFinished(message) {
+    alert(message);
+    correctCount.textContent = 0;
+    wrongCount.textContent = 0;
+    wordMistakes.textContent = 0;
+};
