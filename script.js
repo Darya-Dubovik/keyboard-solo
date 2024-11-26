@@ -74,6 +74,7 @@ function isNewWord() {
     renderWord(currentWord);
     index=0;
     error=false;
+    wordMistakes.textContent = 0;
 };
 
 function checkNumber() {
